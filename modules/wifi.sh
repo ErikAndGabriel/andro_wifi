@@ -23,14 +23,22 @@ wifi_info() {
         freq=$(echo "$json" | jq -r '.frequency_mhz // .frequency // "N/A"')
         rssi=$(echo "$json" | jq -r '.rssi // "N/A"')
         link=$(echo "$json" | jq -r '.link_speed_mbps // "N/A"')
-
+        mac=$(echo "$json" | jq -r '.mac_address // "N/A"')
+        network_id=$(echo "$json" | jq -r '.network_id // "N/A"')
+        hidden=$(echo "$json" | jq -r '.ssid_hidden // "N/A"')
+        supplicant=$(echo "$json" | jq -r '.supplicant_state // "N/A"')
+        
         log_it "  SSID       : $ssid"          "$C_WHITE"
         log_it "  BSSID      : $bssid"         "$C_WHITE"
         log_it "  IP Local   : $ip"            "$C_WHITE"
         log_it "  Frequência : ${freq} MHz"    "$C_WHITE"
         log_it "  RSSI       : ${rssi} dBm"    "$C_WHITE"
         log_it "  Link Speed : ${link} Mbps"   "$C_WHITE"
-
+        log_it "  MAC Address     : $mac" "$C_WHITE"
+        log_it "  Network ID      : $network_id" "$C_WHITE"
+        log_it "  SSID Hidden     : $hidden" "$C_WHITE"
+        log_it "  Supplicant State: $supplicant" "$C_WHITE"
+  
         feedback "Conectado a $ssid"
     else
         log_it "  $json" "$C_WHITE"

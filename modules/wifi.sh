@@ -28,12 +28,12 @@ wifi_info() {
         hidden=$(echo "$json" | jq -r '.ssid_hidden // "N/A"')
         supplicant=$(echo "$json" | jq -r '.supplicant_state // "N/A"')
         
-        log_it "  SSID       : $ssid"          "$C_WHITE"
-        log_it "  BSSID      : $bssid"         "$C_WHITE"
-        log_it "  IP Local   : $ip"            "$C_WHITE"
-        log_it "  Frequência : ${freq} MHz"    "$C_WHITE"
-        log_it "  RSSI       : ${rssi} dBm"    "$C_WHITE"
-        log_it "  Link Speed : ${link} Mbps"   "$C_WHITE"
+        log_it "  SSID            : $ssid"          "$C_WHITE"
+        log_it "  BSSID           : $bssid"         "$C_WHITE"
+        log_it "  IP Local        : $ip"            "$C_WHITE"
+        log_it "  Frequência      : ${freq} MHz"    "$C_WHITE"
+        log_it "  RSSI            : ${rssi} dBm"    "$C_WHITE"
+        log_it "  Link Speed      : ${link} Mbps"   "$C_WHITE"
         log_it "  MAC Address     : $mac" "$C_WHITE"
         log_it "  Network ID      : $network_id" "$C_WHITE"
         log_it "  SSID Hidden     : $hidden" "$C_WHITE"

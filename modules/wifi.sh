@@ -16,7 +16,7 @@ wifi_info() {
     fi
 
     if command -v jq &>/dev/null; then
-        local ssid bssid ip freq rssi link
+        local ssid bssid ip freq rssi link mac network_id hidden supplicant
         ssid=$(echo "$json" | jq -r '.ssid // "N/A"')
         bssid=$(echo "$json" | jq -r '.bssid // "N/A"')
         ip=$(echo "$json" | jq -r '.ip // "N/A"')

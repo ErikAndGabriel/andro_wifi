@@ -10,7 +10,7 @@ CONFIG_FILE="./config/config.sh"
 }
 
 source ./modules/banner.sh
-source ./modules/utils.sh
+source ./modules/ultils.sh
 source ./modules/wifi.sh
 
 init_log
